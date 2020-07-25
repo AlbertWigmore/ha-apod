@@ -1,0 +1,9 @@
+{
+    "domain": "apod",
+    "name": "Astronomy Picture of the Day",
+    "documentation": "",
+    "issue_tracker": "https://github.com/AlbertWigmore/ha-apod/issues",
+    "dependancies": [],
+    "codeowners": ["@albertwigmore"],
+    "requirements": ["requests"]
+}
