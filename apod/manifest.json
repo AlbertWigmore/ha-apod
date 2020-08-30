@@ -3,7 +3,7 @@
     "name": "Astronomy Picture of the Day",
     "documentation": "",
     "issue_tracker": "https://github.com/AlbertWigmore/ha-apod/issues",
-    "dependancies": [],
+    "dependencies": [],
     "codeowners": ["@albertwigmore"],
     "requirements": ["requests"]
 }
