@@ -36,7 +36,6 @@ class APODSensor(Entity):
         """Initialize the sensor."""
         self._api_key = api_key
         self._attributes = {}
-        self._entity_picture_url = None
         self._state = None
 
     def update(self):
@@ -53,8 +52,11 @@ class APODSensor(Entity):
 
         self._state = data['title']
         self._attributes['explanation'] = data['explanation']
-        self._entity_picture_url = data['url']
-        self._attributes[ATTR_ATTRIBUTION] = ATTRIBUTION + f", Copyright {data['copyright']}"
+        self._attributes['date'] = data['date']
+        self._attributes['url'] = data['url']
+        self._attributes[ATTR_ATTRIBUTION] = ATTRIBUTION
+        if 'copyright' in data:
+            self._attributes[ATTR_ATTRIBUTION] + f", Copyright {data['copyright']}"
 
     @property
     def device_state_attributes(self):
@@ -75,8 +77,3 @@ class APODSensor(Entity):
     def state(self):
         """Return the state of the sensor."""
         return self._state
-
-    @property
-    def entity_picture(self):
-        """Return the URL for the entity picture"""
-        self._entity_picture_url
